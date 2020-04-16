@@ -1,0 +1,112 @@
+.header{
+  position: relative;
+  height: 228px;
+  padding: 45px 145px 0;
+  box-sizing: border-box;
+  background: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  @include laptop{
+    padding: 5vh 5vw 0;
+    height: 25vh;
+  }
+  @include tablet{
+    margin: 5px 0 0;
+  }
+  img{
+    height: 45px;
+    width: auto;
+  }
+
+
+  .mobile-menu-icon{
+    display: none;
+    position: absolute;
+    right: 20px;
+    height: 40px;
+    width: 45px;
+    text-align: center;
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 0;
+    img{
+      height: 35px;
+      width: 40px;
+    }
+  }
+  .close-menu{
+    display: none;
+    position: absolute;
+    right: 20px;
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 0;
+    img{
+      width: auto;
+      height: 40px;
+    }
+  }
+  .nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 60vw;
+    .link{
+      margin-left: 35px;
+      color: black;
+      text-decoration: none;
+      @include laptop{
+        margin-left: 2.4vw;
+        font-size: 0.8rem;
+      }
+      &.nav-sign{
+        @include button(20%);
+        @include laptop{
+          padding: 1.6vh 2.4vw;
+          font-size: 0.8rem;
+        }
+      }
+    }
+  }
+
+}
+
+@include tablet{
+  .header{
+    justify-content: center;
+    padding: 5px 0 0;
+    .mobile-menu-icon,
+    .close-menu{
+      display: inline-block;
+    }
+    .nav{
+      position: absolute;
+      top: -5px;
+      right: 0;
+      width: 100%;
+      z-index: 2;
+      background: white;
+      border-radius:  0 0 0 5px;
+      box-shadow: 0 0 10px $gray;
+      transition: 0.3s all;
+      .link{
+        display: block;
+        margin-left: 0;
+        padding: 20px 20px;
+        text-align: center;
+        &:hover{
+          background: $light-gray;
+          color: $blue;
+        }
+      }
+      &.hide-nav{
+        right: -100%;
+      }
+    }
+  }
+}

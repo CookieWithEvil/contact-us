@@ -1,0 +1,41 @@
+@mixin laptop{
+  @media all and (max-width: 1440px){
+    @content;
+  }
+}
+
+@mixin tablet{
+  @media all and (max-width: 900px){
+    @content;
+  }
+}
+
+@mixin mobile{
+  @media all and (max-width: 640px){
+    @content;
+  }
+}
+
+@mixin button($width){
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 1rem;
+  border: none;
+  outline: none;
+  background: $red;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: $width;
+  @include laptop{
+    height: 5.5vh;
+  }
+  @include tablet{
+    height: auto;
+  }
+  @include mobile{
+    height: 50px;
+  }
+}

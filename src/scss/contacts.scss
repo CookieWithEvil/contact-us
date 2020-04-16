@@ -1,0 +1,89 @@
+main{
+  height: calc(100vh - 228px);
+  background: $gray url('../images/map.png');
+  background-size: 100% auto;
+  @include laptop{
+    height: 75vh;
+  }
+
+  .contacts-list{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-around;
+    width: 300px;
+    margin: 0;
+    height: 255px;
+    left: 0px;
+    bottom: 0px;
+    padding-top: 20px;
+    backdrop-filter: blur(8px);
+    border-radius: 0px 8px 0px 0px;
+
+    li{
+      margin-left: 20px;
+      .text-container{
+        position: relative;
+        left: 25px;
+      }
+      &.contact-location{
+        list-style-image: url('../images/location.png');
+        .text-container{
+          top: -20px;
+        }
+      }
+      &.contact-phone{
+        list-style-image: url('../images/phone.png');
+        .text-container{
+          top: -10px;
+        }
+      }
+      &.contact-mail{
+        list-style-image: url('../images/mail.png');
+        .text-container{
+          top: -10px;
+        }
+      }
+    }
+  }
+
+  @include laptop{
+    .contacts-list{
+      padding-top: 2.2vh;
+      width: 25vw;
+      li{
+        margin-left: 1.4vw;
+        .text-container{
+          left: 1wv;
+        }
+      }
+    }
+  }
+
+  @include tablet{
+    background-size: auto 100%;
+    .contacts-list{
+      padding-top: 10px;
+      height: 200px;
+      width: 250px;
+      li{
+        margin-left: 1.4vw;
+        font-size: 0.7rem;
+        .text-container{
+          left: 1wv;
+        }
+      }
+    }
+  }
+
+  @include mobile{
+    .contacts-list{
+      align-items: baseline;
+      width: 100%;
+      position: relative;
+      right: 0;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.12);
+    }
+  }
+}

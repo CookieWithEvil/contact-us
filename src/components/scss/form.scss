@@ -1,0 +1,184 @@
+@import '../../scss/variables.scss';
+@import '../../scss/mixins.scss';
+
+.contact-form{
+  position: absolute;
+  height: calc(100vh - 137px);
+  width: 416px;
+  background: white;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.12);
+  border-radius: 8px 8px 0 0;
+  right: 147px;
+  bottom: 0;
+  box-sizing: border-box;
+  padding: 36px 48px;
+
+  .title{
+    margin: 0 0 30px;
+  }
+  .label{
+    &-text-wrapper{
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 5px;
+      font-size: 12px;
+      .label-text{
+        margin: 0;
+      }
+      .error-text{
+        color: $red;
+      }
+    }
+
+    .form-input{
+      font-family: inherit;
+      padding: 0 15px;
+      margin-bottom: 20px;
+      box-sizing: border-box;
+      width: 100%;
+      outline: none;
+      height: 38px;
+      border: 1px solid $gray;
+      border-radius: 5px;
+
+      &:focus{
+        box-shadow: inset 4px 0 0 -2px $blue;
+      }
+      &.error{
+        border: 1px solid $red;
+      }
+
+      &[name='name']{
+        text-transform: capitalize;
+      }
+
+      &.textarea{
+        padding-top: 5px;
+        height: 115px;
+        resize: none;
+      }
+
+
+    }
+  }
+
+  .select{
+    position: relative;
+    .options{
+      display: none;
+      z-index: 2;
+      background: white;
+      border: 1px solid $gray;
+      border-radius: 5px;
+      position: absolute;
+      top: 38px;
+      left: 0;
+      font-size: 1rem;
+      margin: 0;
+      width: 100%;
+      padding: 0;
+      box-shadow: 0 0 10px $gray;
+      li{
+        border-left: 1px solid $gray;
+        border-right: 1px solid $gray;
+        box-sizing: border-box;
+        padding: 15px;
+        list-style: none;
+        text-align: left;
+        margin: 0;
+        background: white;
+        &:hover{
+          background: $light-gray;
+          color: $blue;
+        }
+        &:first-child{
+          border-radius: 5px 5px 0 0;
+          border-top: 1px solid $gray;
+        }
+      }
+    }
+
+    button{
+      background: white;
+      text-align: left;
+      font-size: 1rem;
+      &:focus .options{
+        display: block;
+      }
+    }
+  }
+
+  .submit-button{
+    width: 100%;
+    @include button(100%);
+    .spinner-icon{
+      margin-top: 5px;
+    }
+    &.success{
+      background: white;
+      border: 1px solid black;
+      color: black;
+    }
+  }
+}
+
+.success-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  box-sizing: border-box;
+  padding: 10vh 0;
+  img{
+    width: 95%;
+  }
+  .success-title{
+    font-size: 2rem;
+  }
+}
+
+@include laptop{
+  .contact-form{
+    height: 80vh;
+    width: 29vw;
+    padding: 4.5vh 3vw;
+    right: 16vw;
+    .title{
+      font-size: 1.3rem;
+      margin: 0 0 3vh;
+    }
+    .label{
+      .label-text-wrapper{
+        font-size: 0.8rem;
+      }
+      .form-input{
+        height: 4.2vh;
+        padding: 0 10px;
+        margin-bottom: 2.2vh;
+      }
+    }
+    .select{
+      .options{
+        top: 4.2vh;
+        height: 160px;
+        padding: 0;
+        li{
+          height: 40px;
+        }
+      }
+    }
+
+  }
+}
+
+@include mobile{
+  .contact-form{
+    position: relative;
+    z-index: 1;
+    right: 0;
+    box-shadow: 0 0 20px $gray;
+    width: 100%;
+    border-radius: 0;
+  }
+}
